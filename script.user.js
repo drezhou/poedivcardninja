@@ -302,12 +302,24 @@
                     .end()  //again go back to selected element
                     .text();    //get the text of element
 
-                // Calculate total and parse output
+                // Calculate stack total and parse output
                 function formatNumber(num) {
                     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
                 }
-                var totalDecimal = Math.floor(stackSize * cardValue);
-                var totalStackCost = formatNumber(totalDecimal);
+
+                var multiplier;
+                if (cardValue > 1000){
+                    multiplier = 1.01
+                } else if (cardValue > 100 && cardValue < 999){
+                    multiplier = 1.03
+                } else if (cardValue >10 && cardValue < 99){
+                    multiplier = 1.05
+                } else {
+                    multiplier = 1.02
+                };
+
+                var totalDecimal = (stackSize * cardValue) * multiplier;
+                var totalStackCost = formatNumber(Math.floor(totalDecimal));
 
                 // Get the item price
                 var itemPriceDecimal = findPriceByName(cardName);
