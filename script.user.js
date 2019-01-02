@@ -14,7 +14,6 @@
     'use strict';
 
     var currentLeague = $(".league-selector > select > option:nth-of-type(2)").text();
-    console.log(currentLeague);
 
     // Get and format date
     var yyyymmdd;
