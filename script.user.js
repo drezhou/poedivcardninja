@@ -343,7 +343,7 @@
             // Add all the shit to the page for each card
             $(".fvfr3wi").each( doStuff );
 
-        }, 1000);
+        }, 2000);
 
 
 })();
